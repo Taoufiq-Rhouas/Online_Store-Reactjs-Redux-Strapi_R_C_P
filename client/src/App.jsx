@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
 import './App.css'
 
-import { fetchApi } from './hooks/fetchApi';
+// --S_Comment_2
+// import { fetchApi } from './hooks/fetchApi';
+// --E_Comment_2
+
+import useFetch from './hooks/useFetch';
 
 export default function App() {
   const [products, setProducts] = useState([])
   const [categories, setCategories] = useState([])
 
-  // // --
+  // // --S_Comment_1
   // const fetchProducts = async () => {
   //   const res = await axios.get(
   //     // this api without Image from strapi = 'import.meta.env.VITE_API_URL + "/products",'
@@ -21,27 +25,39 @@ export default function App() {
   //   )
   //   console.log(res.data.data);
   // }
-  // // --
+  // // --E_Comment_1
 
-  // Appel API
-  const fetchProducts = async () =>{
-    const res = await fetchApi.get("/products")
-    setProducts(res.data.data);
-  }
+
+  // // --S_Comment_2
+  // // Appel API
+  // const fetchProducts = async () =>{
+  //   const res = await fetchApi.get("/products")
+  //   setProducts(res.data.data);
+  // }
  
-  // fetchProducts()
-  useEffect(()=>{
-    fetchProducts()
-  },[])
+  // // fetchProducts()
+  // useEffect(()=>{
+  //   fetchProducts()
+  // },[])
 
-  const fetchCategories = async () =>{
-    const res = await fetchApi.get("/categories")
-    setCategories(res.data.data);
-  }
-  // fetchCategories()
+  // const fetchCategories = async () =>{
+  //   const res = await fetchApi.get("/categories")
+  //   setCategories(res.data.data);
+  // }
+  // // fetchCategories()
+  // useEffect(()=>{
+  //   fetchCategories()
+  // },[])
+  // // --E_Comment_2
+
+
+
+  const {data, loading, error} = useFetch("/products")
+
   useEffect(()=>{
-    fetchCategories()
-  },[])
+    // data && console.log(data) = console.log(data) Only if data is not null
+    data && console.log(data);
+  },[data])
 
   return (
     <>
