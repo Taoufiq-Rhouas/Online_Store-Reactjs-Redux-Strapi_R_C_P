@@ -1,14 +1,19 @@
 import { useEffect, useState } from 'react';
 import './App.css'
+import Products from './components/Products';
 
 // --S_Comment_2
 // import { fetchApi } from './hooks/fetchApi';
 // --E_Comment_2
 
-import useFetch from './hooks/useFetch';
+// // S_Comment_3
+// import useFetch from './hooks/useFetch';
+// // E_Comment_3
 
 export default function App() {
-  const [products, setProducts] = useState([])
+  // // S_Comment_3
+  // const [products, setProducts] = useState([])
+  // // E_Comment_3
   const [categories, setCategories] = useState([])
 
   // // --S_Comment_1
@@ -52,16 +57,19 @@ export default function App() {
 
 
 
-  const {data, loading, error} = useFetch("/products")
+  // // S_Comment_3
+  // const {data, loading, error} = useFetch("/products")
 
-  useEffect(()=>{
-    // data && console.log(data) = console.log(data) Only if data is not null
-    data && console.log(data);
-  },[data])
+  // useEffect(()=>{
+  //   // data && console.log(data) = console.log(data) Only if data is not null
+  //   data && console.log(data);
+  // },[data])
+  // // E_Comment_3
 
   return (
     <>
-      <h1>hello</h1>
+      {/* <h1>hello</h1> */}
+      <Products />
     </>
   )
 }
