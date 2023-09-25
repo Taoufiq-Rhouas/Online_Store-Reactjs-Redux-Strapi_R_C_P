@@ -1,6 +1,9 @@
-import { useEffect, useState } from 'react';
+// // S_Comment_4
+// import { useEffect, useState } from 'react';
+// // E_Comment_4
 import './App.css'
 import Products from './components/Products';
+import Categories from './components/Categories';
 
 // --S_Comment_2
 // import { fetchApi } from './hooks/fetchApi';
@@ -14,7 +17,10 @@ export default function App() {
   // // S_Comment_3
   // const [products, setProducts] = useState([])
   // // E_Comment_3
-  const [categories, setCategories] = useState([])
+
+  // // S_Comment_4
+  // const [categories, setCategories] = useState([])
+  // // E_Comment_4
 
   // // --S_Comment_1
   // const fetchProducts = async () => {
@@ -70,6 +76,7 @@ export default function App() {
     <>
       {/* <h1>hello</h1> */}
       <Products />
+      <Categories />
     </>
   )
 }
