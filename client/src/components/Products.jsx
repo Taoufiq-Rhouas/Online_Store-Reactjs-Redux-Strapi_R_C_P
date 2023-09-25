@@ -15,16 +15,16 @@ export default function Products() {
     },[data])
 
     return (
-        <div className='flex'>
+        <div className='products'>
             {
                 loading 
                     ? "Loading..." 
                     : products.map(product => (
-                        <div key={product.id} >
-                            <h2>{product.attributes.title}</h2>
-                            <div>{product.attributes.desc}</div>
-                            <div>{product.attributes.price}</div>
-                            <img src={`${import.meta.env.VITE_APP_URL + product.attributes.image.data.attributes.url}`} alt='' />
+                        <div className='product' key={product.id} >
+                            <h2 className='product-title' >{product.attributes.title}</h2>
+                            <div className='product-price' >{product.attributes.price}</div>
+                            <img className='product-image'  src={`${import.meta.env.VITE_APP_URL + product.attributes.image.data.attributes.url}`} alt='' />
+                            <div className='product-desc' >{product.attributes.desc}</div>
                         </div>
                     ))
             }
