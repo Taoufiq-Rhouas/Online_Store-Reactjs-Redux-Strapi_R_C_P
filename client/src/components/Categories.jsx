@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import useFetch from '../hooks/useFetch';
 
 import './Products.css'
+import Checkbox from './Checkbox';
 
 export default function Categories() {
 
@@ -16,16 +17,20 @@ export default function Categories() {
     },[data])
 
     return (
-        <div className='flex'>
+        <div className='categories'>
             {
                 loading 
                     ? "Loading..." 
                     : categories.map(category => (
-                        <div key={category.id} >
-                            <h2>{category.attributes.title}</h2>
-                            <div>{category.attributes.description}</div>
-                            <img src={`${import.meta.env.VITE_APP_URL + category.attributes.image.data.attributes.url}`} alt='' />
-                        </div>
+                        // <div key={category.id} >
+                        //     <h2>{category.attributes.title}</h2>
+                        //     <div>{category.attributes.description}</div>
+                        //     <img src={`${import.meta.env.VITE_APP_URL + category.attributes.image.data.attributes.url}`} alt='' />
+                        // </div>
+                        
+                        <Fragment key={category.id}>
+                            <Checkbox category={category} />
+                        </Fragment>
                     ))
             }
         </div>
