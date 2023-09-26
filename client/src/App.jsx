@@ -77,6 +77,8 @@ export default function App() {
 
   const [filter, setFilter] = useState("/products?populate=*");
 
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
   // useEffect(() => {
   //   console.log(filter);
   // },[filter])
@@ -84,7 +86,12 @@ export default function App() {
   return (
     <>
       {/* <h1>hello</h1> */}
-      <StoreContext.Provider value={{filter, setFilter}} >
+      <StoreContext.Provider value={
+        {
+          filter, setFilter,
+          selectedCategories, setSelectedCategories
+        }
+      } >
         <Categories />
         <Products />
       </StoreContext.Provider>
