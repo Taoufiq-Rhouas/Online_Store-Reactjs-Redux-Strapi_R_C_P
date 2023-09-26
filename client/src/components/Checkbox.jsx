@@ -10,7 +10,7 @@ export default function Checkbox({category}) {
 
     const handleFilterCategory = (e) => {
         // setFilter(e.target.checked)
-        setFilter(e.target.dataset.category)
+        setFilter("http://localhost:1337/api/products?populate=*&filters[categories][id][$eq]=" + e.target.dataset.category)
     }
 
     return (

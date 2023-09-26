@@ -75,16 +75,16 @@ export default function App() {
   // },[data])
   // // E_Comment_3
 
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState("/products?populate=*");
 
-  useEffect(() => {
-    console.log(filter);
-  },[filter])
+  // useEffect(() => {
+  //   console.log(filter);
+  // },[filter])
 
   return (
     <>
       {/* <h1>hello</h1> */}
-      <StoreContext.Provider value={{setFilter}} >
+      <StoreContext.Provider value={{filter, setFilter}} >
         <Categories />
         <Products />
       </StoreContext.Provider>
