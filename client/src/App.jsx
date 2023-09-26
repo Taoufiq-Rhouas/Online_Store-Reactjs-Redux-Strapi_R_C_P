@@ -5,6 +5,9 @@ import './App.css'
 import Products from './components/Products';
 import Categories from './components/Categories';
 
+import StoreContext from './hooks/storeContext';
+import { useEffect, useState } from 'react';
+
 // --S_Comment_2
 // import { fetchApi } from './hooks/fetchApi';
 // --E_Comment_2
@@ -72,11 +75,20 @@ export default function App() {
   // },[data])
   // // E_Comment_3
 
+  const [filter, setFilter] = useState("");
+
+  useEffect(() => {
+    console.log(filter);
+  },[filter])
+
   return (
     <>
       {/* <h1>hello</h1> */}
-      <Categories />
-      <Products />
+      <StoreContext.Provider value={{setFilter}} >
+        <Categories />
+        <Products />
+      </StoreContext.Provider>
+      
     </>
   )
 }

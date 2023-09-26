@@ -1,14 +1,20 @@
 import React, { Fragment, useEffect, useState } from 'react'
+
+// import React, { Fragment, useEffect, useState , useContext } from 'react'
 import useFetch from '../hooks/useFetch';
 
 import './Products.css'
 import Checkbox from './Checkbox';
 
+// import StoreContext from '../hooks/storeContext';
+
 export default function Categories() {
 
     const [categories, setCategories] = useState([])
 
-    const {data, loading, error} = useFetch("/categories?populate=*")
+    const {data, loading, error} = useFetch("/categories?populate=*");
+
+    // const {filter} = useContext(StoreContext)
 
     useEffect(()=>{
         // data && console.log(data) = console.log(data) Only if data is not null
