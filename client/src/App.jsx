@@ -7,6 +7,7 @@ import Categories from './components/Categories';
 
 import StoreContext from './hooks/storeContext';
 import { useEffect, useState } from 'react';
+import Cart from './components/Cart';
 
 // --S_Comment_2
 // import { fetchApi } from './hooks/fetchApi';
@@ -86,6 +87,7 @@ export default function App() {
   return (
     <>
       {/* <h1>hello</h1> */}
+      <Cart />
       <StoreContext.Provider value={
         {
           filter, setFilter,
