@@ -11,9 +11,9 @@ Before you begin, ensure you have met the following requirements:
 ## Cloning the Repository
 
 To get a local copy of this project, follow these steps:
+First, clone the repository:
 
 ```bash
-First, clone the repository:
 git clone https://github.com/Taoufiq-Rhouas/Online_Store-Reactjs-Redux-Strapi_R_C_P.git
 cd Online_Store-Reactjs-Redux-Strapi_R_C_P
 ```
@@ -55,7 +55,7 @@ npm run dvelop
 
 #### **Configure Your Personal Token**:
 
-- Create a `.env` file in the root of your project directory in client folder like '.env.example' if it doesn't already exist.
+- Create a `.env` file in the root of your project directory in client folder like `.env.example` if it doesn't already exist.
 - Open the `.env` file and add the following line, replacing `VITE_API_TOKEN` with the token you generated from the Strapi CMS dashboard:
 
 - Add a `VITE_API_URL` And `VITE_APP_URL` like this example :
@@ -83,3 +83,5 @@ To start the frontend development server, run:
 ```bash
 npm run dev
 ```
+
+`** N.B database : strapistore.sql **`
