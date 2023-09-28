@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Cart.css';
 import {FaShoppingBasket} from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 export default function Cart() {
 
@@ -9,6 +10,11 @@ export default function Cart() {
     const showCartList = () => {
         cartList ? setCartList(false) : setCartList(true)
     }
+
+    const products = useSelector(state => state.cart.products)
+    console.log('products redux : ====================================');
+    console.log(products);
+    console.log('====================================');
 
     return (
         <div className='cart' >
