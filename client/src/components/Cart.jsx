@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './Cart.css';
-import {FaShoppingBasket, FaTrash} from 'react-icons/fa';
+import {FaRedoAlt, FaShoppingBasket, FaTrash} from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { removeFromCart } from '../reddux/cartReducer';
+import { removeFromCart , resetCart } from '../reddux/cartReducer';
 
 export default function Cart() {
 
@@ -49,6 +49,12 @@ export default function Cart() {
                                 </li>
                             ))
                         }
+
+                        <span 
+                            className="cart-reset"
+                            onClick={()=>dispatch(resetCart())} 
+                        ><FaRedoAlt /> </span>
+
                         {/* <li className="cart-item"><img src="http://localhost:1337/uploads/men_03_3e8fa22f36.jpg" alt="" className="cart-item-image" /><span className="cart-item-title">Classic sprint</span><span className="cart-item-price">120$</span></li>
                         <li className="cart-item"><img src="http://localhost:1337/uploads/men_02_84653ed278.jpg" alt="" className="cart-item-image" /><span className="cart-item-title">Air Force 1 X</span><span className="cart-item-price">90$</span></li>
                         <li className="cart-item"><img src="http://localhost:1337/uploads/women_01_a17b4a253c.jpg" alt="" className="cart-item-image" /><span className="cart-item-title">Green Jacket</span><span className="cart-item-price">75$</span></li>
