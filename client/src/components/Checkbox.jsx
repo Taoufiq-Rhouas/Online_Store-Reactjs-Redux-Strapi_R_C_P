@@ -1,23 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import './Checkbox.css'
-
 import qs from "qs";
-
 import StoreContext from '../hooks/storeContext';
-
 
 export default function Checkbox({category}) {
 
-    // const {setFilter} = useContext(StoreContext);
     const {setFilter , selectedCategories, setSelectedCategories} = useContext(StoreContext);
-
-    // const [selectedCategories, setSelectedCategories] = useState([]);
-
-    // useEffect(()=>{
-    //     console.log('selectedCategories :====================================');
-    //     console.log(selectedCategories);
-    //     console.log('====================================');
-    // },[selectedCategories])
 
     useEffect(()=>{
         const query = qs.stringify({
@@ -29,12 +17,6 @@ export default function Checkbox({category}) {
     },[selectedCategories])
 
     const handleFilterCategory = (e) => {
-        // setFilter(e.target.checked)
-        // setFilter("http://localhost:1337/api/products?populate=*&filters[categories][id][$eq]=" + e.target.dataset.category)
-
-        // console.log(e.target.dataset.category);
-        // console.log(e.target.checked);
-
         const selectedID = e.target.dataset.category
         const isChecked = e.target.checked
 
@@ -43,19 +25,6 @@ export default function Checkbox({category}) {
             // This Is else
             return selectedCategories.filter(id => id !== selectedID)
         })
-
-        // const query = qs.stringify({
-        //     filters: {
-        //         categories: {
-        //             id: {
-        //                 $in: selectedCategories
-        //             }
-        //         }
-        //     }
-        // })
-        // setFilter("http://localhost:1337/api/products?populate=*&" + query)
-
-        
     }
 
     return (

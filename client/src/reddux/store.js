@@ -1,7 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
 import cartReducer from './cartReducer'
-
-// -----------------
 import {
   persistStore,
   persistReducer,
@@ -34,20 +32,4 @@ export const store = configureStore({
         }),
 })
 
-// export const store = configureStore({
-//     reducer: {
-//         cart: cartReducer
-//     },
-// })
-
 export let persistor = persistStore(store)
-
-// -----------------
-
-// // S_Comment-1
-// export const store = configureStore({
-//     reducer: {
-//         cart: cartReducer
-//     },
-// })
-// // E_Comment-1

@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import useFetch from '../hooks/useFetch';
-
 import StoreContext from '../hooks/storeContext';
-
 import './Products.css'
 import { addToCart } from '../reddux/cartReducer';
 import { useDispatch } from 'react-redux';
@@ -10,25 +8,13 @@ import { useDispatch } from 'react-redux';
 export default function Products() {
 
     const [products, setProducts] = useState([]);
-
     const {filter} = useContext(StoreContext)
-
-    // // S_Comment_1
-    // const {data, loading, error} = useFetch("/products?populate=*")
-    // // E_Comment_1
-
     const {data, loading, error} = useFetch(filter)
-
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        // data && console.log(data) = console.log(data) Only if data is not null
         data && setProducts(data);
     },[data])
-
-    // useEffect(() => {
-    //     console.log(filter);
-    // },[filter])
 
     return (
         <div className='products'>
