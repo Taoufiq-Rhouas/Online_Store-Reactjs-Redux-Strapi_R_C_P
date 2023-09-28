@@ -4,6 +4,8 @@ import useFetch from '../hooks/useFetch';
 import StoreContext from '../hooks/storeContext';
 
 import './Products.css'
+import { addToCart } from '../reddux/cartReducer';
+import { useDispatch } from 'react-redux';
 
 export default function Products() {
 
@@ -16,6 +18,8 @@ export default function Products() {
     // // E_Comment_1
 
     const {data, loading, error} = useFetch(filter)
+
+    const dispatch = useDispatch()
 
     useEffect(()=>{
         // data && console.log(data) = console.log(data) Only if data is not null
@@ -37,6 +41,18 @@ export default function Products() {
                             <div className='product-price' >{product.attributes.price}</div>
                             <img className='product-image'  src={`${import.meta.env.VITE_APP_URL + product.attributes.image.data.attributes.url}`} alt='' />
                             <div className='product-desc' >{product.attributes.desc}</div>
+                            <button 
+                                className='product-btn' 
+                                onClick={()=>dispatch(addToCart({
+                                    // This is payload
+                                    id: product.id,
+                                    title: product.attributes.title,
+                                    desc: product.attributes.desc,
+                                    price: product.attributes.price,
+                                    image: product.attributes.image.data.attributes.url
+
+                                }))}  
+                            >add to cart</button>
                         </div>
                     ))
             }
