@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import './Cart.css';
-import {FaShoppingBasket} from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import {FaShoppingBasket, FaTrash} from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { removeFromCart } from '../reddux/cartReducer';
 
 export default function Cart() {
 
@@ -16,17 +18,19 @@ export default function Cart() {
     // console.log(products);
     // console.log('====================================');
 
+    const dispatch = useDispatch()
+
     return (
         <div className='cart' >
             <div className="cart-icon"
-                onClick={showCartList}
+                onClick={products.length > 0 && showCartList}
             >
                 <FaShoppingBasket />
             </div>
-            <div className="cart-badge">5</div>
+            <div className="cart-badge">{products.length}</div>
 
             {
-                cartList
+                cartList || products.length > 0
                 ?(
                     <ul className="cart-list">
                         {
@@ -35,6 +39,13 @@ export default function Cart() {
                                     <img src={import.meta.env.VITE_APP_URL + product.image} alt="" className="cart-item-image" />
                                     <span className="cart-item-title">{product.title}</span>
                                     <span className="cart-item-price">{product.price}</span>
+                                    <span 
+                                        className="cart-item-remove"
+                                        onClick={()=>dispatch(removeFromCart({
+                                            // This is payload
+                                            id: product.id,
+                                        }))}  
+                                    ><FaTrash /> </span>
                                 </li>
                             ))
                         }
