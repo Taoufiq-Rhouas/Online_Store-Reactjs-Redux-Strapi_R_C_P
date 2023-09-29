@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 29, 2023 at 12:12 AM
+-- Generation Time: Sep 29, 2023 at 08:18 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -332,7 +332,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `title`, `description`, `created_at`, `updated_at`, `published_at`, `created_by_id`, `updated_by_id`) VALUES
-(1, 'men', 'Welcome to our Men\'s Clothing collection, where style meets comfort and sophistication. Explore a world of fashion designed exclusively for the modern man who values both quality and trendiness. Whether you\'re gearing up for a special occasion, elevating your everyday look, or simply restocking your wardrobe essentials, our curated selection has you covered.', '2023-09-19 21:39:16.361000', '2023-09-19 21:39:25.273000', '2023-09-19 21:39:25.261000', 1, 1),
+(1, 'men', 'Welcome to our Men\'s Clothing collection, where style meets comfort and sophistication. Explore a world of fashion designed exclusively for the modern man who values both quality and trendiness. Whether you\'re gearing up for a special occasion, elevating your everyday look, or simply restocking your wardrobe essentials, our curated selection has you covered.', '2023-09-19 21:39:16.361000', '2023-09-29 19:15:22.783000', '2023-09-19 21:39:25.261000', 1, 1),
 (2, 'women', 'Welcome to our Women\'s Clothing collection, where style, sophistication, and individuality converge to help you express your unique personality through fashion. Our curated selection is designed to empower and inspire women of all ages, offering a wide array of clothing options to suit your diverse lifestyle and preferences.', '2023-09-19 21:40:57.685000', '2023-09-19 21:44:55.486000', '2023-09-19 21:41:00.274000', 1, 1),
 (3, 'kids', 'Welcome to our Kids\' Clothing collection, where fashion meets fun and comfort for the little ones in your life. We understand that kids grow quickly, and their style preferences change just as fast. That\'s why we\'ve curated a vibrant and diverse range of clothing options designed to keep your children looking stylish and feeling great, whatever the occasion.', '2023-09-19 21:42:26.188000', '2023-09-19 21:47:21.931000', '2023-09-19 21:42:28.559000', 1, 1);
 
@@ -442,15 +442,15 @@ CREATE TABLE `files_related_morphs` (
 --
 
 INSERT INTO `files_related_morphs` (`id`, `file_id`, `related_id`, `related_type`, `field`, `order`) VALUES
-(1, 4, 1, 'api::category.category', 'image', 1),
 (4, 5, 2, 'api::category.category', 'image', 1),
 (5, 40, 3, 'api::category.category', 'image', 1),
-(6, 22, 1, 'api::product.product', 'image', 1),
-(13, 23, 2, 'api::product.product', 'image', 1),
 (18, 18, 6, 'api::product.product', 'image', 1),
 (20, 35, 3, 'api::product.product', 'image', 1),
-(21, 16, 4, 'api::product.product', 'image', 1),
-(22, 17, 5, 'api::product.product', 'image', 1);
+(24, 4, 1, 'api::category.category', 'image', 1),
+(25, 23, 2, 'api::product.product', 'image', 1),
+(26, 22, 1, 'api::product.product', 'image', 1),
+(27, 16, 4, 'api::product.product', 'image', 1),
+(28, 17, 5, 'api::product.product', 'image', 1);
 
 -- --------------------------------------------------------
 
@@ -499,11 +499,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `desc`, `price`, `is_featured`, `created_at`, `updated_at`, `published_at`, `created_by_id`, `updated_by_id`) VALUES
-(1, 'Classic sprint', 'Welcome to our Men\'s Clothing collection, where style meets comfort and sophistication. Explore a world of fashion designed exclusively for the modern man who values both quality and trendiness. Whether you\'re gearing up for a special occasion, elevating your everyday look, or simply restocking your wardrobe essentials, our curated selection has you covered.', 120, 0, '2023-09-19 21:57:42.832000', '2023-09-19 21:57:44.827000', '2023-09-19 21:57:44.813000', 1, 1),
-(2, 'Air Force 1 X', 'Welcome to our Men\'s Clothing collection, where style meets comfort and sophistication. Explore a world of fashion designed exclusively for the modern man who values both quality and trendiness. Whether you\'re gearing up for a special occasion, elevating your everyday look, or simply restocking your wardrobe essentials, our curated selection has you covered.', 90, 1, '2023-09-19 21:59:57.436000', '2023-09-20 00:59:58.772000', '2023-09-19 21:59:59.817000', 1, 1),
+(1, 'Classic sprint', 'Welcome to our Men\'s Clothing collection, where style meets comfort and sophistication. Explore a world of fashion designed exclusively for the modern man who values both quality and trendiness.', 120, 0, '2023-09-19 21:57:42.832000', '2023-09-29 19:16:32.538000', '2023-09-19 21:57:44.813000', 1, 1),
+(2, 'Air Force 1 X', 'Welcome to our Men\'s Clothing collection, where style meets comfort and sophistication. Explore a world of fashion designed exclusively for the modern man who values both quality and trendiness.', 90, 1, '2023-09-19 21:59:57.436000', '2023-09-29 19:15:51.061000', '2023-09-19 21:59:59.817000', 1, 1),
 (3, 'Green Jacket', 'Green Jacket', 75, 1, '2023-09-19 22:01:57.435000', '2023-09-26 15:49:26.711000', '2023-09-19 22:02:00.059000', 1, 1),
-(4, 'Classic Dress', 'Welcome to our Women\'s Clothing collection, where style, sophistication, and individuality converge to help you express your unique personality through fashion. Our curated selection is designed to empower and inspire women of all ages, offering a wide array of clothing options to suit your diverse lifestyle and preferences.', 45, 1, '2023-09-19 22:04:12.327000', '2023-09-26 15:50:15.631000', '2023-09-19 22:04:14.769000', 1, 1),
-(5, 'Summer Cap', 'Welcome to our Women\'s Clothing collection, where style, sophistication, and individuality converge to help you express your unique personality through fashion. Our curated selection is designed to empower and inspire women of all ages, offering a wide array of clothing options to suit your diverse lifestyle and preferences.', 12, 0, '2023-09-19 22:05:20.669000', '2023-09-26 15:50:36.824000', '2023-09-19 22:05:22.492000', 1, 1),
+(4, 'Classic Dress', 'Welcome to our Women\'s Clothing collection, where style, sophistication, and individuality converge to help you express your unique personality through fashion.', 45, 1, '2023-09-19 22:04:12.327000', '2023-09-29 19:16:45.559000', '2023-09-19 22:04:14.769000', 1, 1),
+(5, 'Summer Cap', 'Welcome to our Women\'s Clothing collection, where style, sophistication, and individuality converge to help you express your unique personality through fashion.', 12, 0, '2023-09-19 22:05:20.669000', '2023-09-29 19:17:07.611000', '2023-09-19 22:05:22.492000', 1, 1),
 (6, 'School Jacket', NULL, NULL, 0, '2023-09-19 23:21:31.250000', '2023-09-20 01:01:37.286000', '2023-09-19 23:21:33.416000', 1, 1);
 
 -- --------------------------------------------------------
@@ -1325,7 +1325,7 @@ ALTER TABLE `files_folder_links`
 -- AUTO_INCREMENT for table `files_related_morphs`
 --
 ALTER TABLE `files_related_morphs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `i18n_locale`
